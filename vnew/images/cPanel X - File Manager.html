@@ -1,0 +1,2255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>cPanel X - File Manager</title>
+        
+
+        <link rel="stylesheet" type="text/css" href="cPanel%20X%20-%20File%20Manager_files/bootstrap.css">
+        
+        <link rel="stylesheet" type="text/css" href="cPanel%20X%20-%20File%20Manager_files/open_sans.css">
+
+        <link rel="stylesheet" href="cPanel%20X%20-%20File%20Manager_files/tree_styles2_optimized.css">
+
+        <link href="cPanel%20X%20-%20File%20Manager_files/styles.html" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/utilities_container.js">
+        </script>
+        
+        <script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/cpanel-all-min.js"></script>
+                <script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/cpanel-all-min.js"></script>
+        <script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/filemanager_editors_optimized.js">
+        </script>
+        
+<link rel="stylesheet" type="text/css" href="cPanel%20X%20-%20File%20Manager_files/ajaxapp-min.css">
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="/cPanel_magic_revision_1465265384/cjt/css/ajaxapp_ie6.css" />
+<![endif]-->
+
+
+        <style type="text/css">
+            html, body, #maintbl {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: none !important;
+            }
+
+            form { margin: 0 }
+
+            #switch_editor_control img {
+                vertical-align: middle;
+            }
+
+            #codewindow {
+                margin:0;
+                width: 100%;
+                border:0;
+            }
+
+            #maintbl, #maintbl tr, #maintbl td {
+                margin:0;
+                padding:0;
+                border-collapse: collapse;
+                border: none;
+            }
+
+            #maintbl td#codewindow_container {
+                padding: 0 0 0 3px;
+            }
+
+            #tcell, #page {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+            #closebutton {
+                padding-right: 5px;
+                margin-right: 5px;
+                margin-top: 10px;
+            }
+            #helpDiv {
+                margin-bottom: 10px;
+            }
+            .cjt_progress_overlay .bd {
+                background: transparent;
+            }
+
+            /* Suppress inherited styles from global style sheets. */
+            .yui-panel .hd,
+            .yui-panel .bd,
+            .yui-panel .ft {
+                background-image: none;
+                font-size: 100%;
+
+            }
+            .yui-panel .ft {
+                background-color: #CCCCCC;
+            }
+            textarea {
+                font-size: 1.2em;
+                font-family: monospace;
+            }
+
+            /* overrides from tree_styles2_optimized.css */
+            p {
+                line-height: normal;
+            }
+            .header {
+                background: #333333;
+                color: #FFFFFF;
+                padding: 5px;
+            }
+            .button-group .default {
+                background: none !important;
+                padding: 0;
+            }
+        </style>
+
+        <!--[if IE]>
+        <style type="text/css">
+            #codewindow {
+                width: 99.5%;
+            }
+        </style>
+        <![endif]-->
+
+    <script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/en.js" charset="UTF-8"></script><script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/html.js" charset="UTF-8"></script></head>
+    <body class="nomargins yui-skin-sam"><div class="mask block-scrollbars" id="yui-gen6_mask" style="z-index: 2503; height: 826px; width: 1440px; display: none;">&nbsp;</div><div class="yui-panel-container cjt-progress-overlay throbber cjt_progress_panel_container hide-scrollbars yui-overlay-hidden" id="yui-gen6_c" style="z-index: 2504; visibility: hidden; left: 590px; top: 383px; overflow: hidden;"><div id="yui-gen6" class="yui-module yui-overlay yui-panel cjt_progress_panel" style="visibility: inherit;"><input style="position: absolute; top: 1px; outline: 0px none currentcolor; margin: 0px; border: 0px none; padding: 0px; height: 1px; width: 1px; z-index: -1; opacity: 0;"><button style="height: 1px; width: 1px; position: absolute; left: -10000em; opacity: 0;" tabindex="-1"></button><div class="bd" style="border: 0px none;" id="yui-gen7"><div class="cjt-progress-overlay-body-liner"><div class="loader-tool"><div class="loader"></div></div><div class="cjt-progress-overlay-text-container"><span class="cjt-progress-overlay-text cjt-fading-text-field">Saving “index.html” …</span></div></div></div><input style="position: absolute; top: 1px; outline: 0px none currentcolor; margin: 0px; border: 0px none; padding: 0px; height: 1px; width: 1px; z-index: -1; opacity: 0;"></div><div class="underlay"></div></div><div class="mask block-scrollbars" id="yui-gen3_mask" style="z-index: 2501; height: 826px; width: 1440px; display: none;">&nbsp;</div><div class="yui-panel-container cjt-progress-overlay throbber cjt_progress_panel_container hide-scrollbars yui-overlay-hidden" id="yui-gen3_c" style="z-index: 2502; visibility: hidden; left: 590px; top: 383px; overflow: hidden;"><div id="yui-gen3" class="yui-module yui-overlay yui-panel cjt_progress_panel" style="visibility: inherit;"><input style="position: absolute; top: 1px; outline: 0px none currentcolor; margin: 0px; border: 0px none; padding: 0px; height: 1px; width: 1px; z-index: -1; opacity: 0;"><button style="height: 1px; width: 1px; position: absolute; left: -10000em; opacity: 0;" tabindex="-1"></button><div class="bd" style="border: 0px none;" id="yui-gen4"><div class="cjt-progress-overlay-body-liner"><div class="loader-tool"><div class="loader"></div></div><div class="cjt-progress-overlay-text-container"><span class="cjt-progress-overlay-text cjt-fading-text-field">Saving “index.html” …</span></div></div></div><input style="position: absolute; top: 1px; outline: 0px none currentcolor; margin: 0px; border: 0px none; padding: 0px; height: 1px; width: 1px; z-index: -1; opacity: 0;"></div><div class="underlay"></div></div><iframe id="_yuiResizeMonitor" title="Text Resize Monitor" tabindex="-1" role="presentation" style="position: absolute; visibility: visible; background-color: transparent; border-width: 0px; width: 2em; height: 2em; left: 0px; top: -29px;"></iframe><div class="mask block-scrollbars" id="yui-gen0_mask" style="z-index: 2499; height: 826px; width: 1440px; display: none;">&nbsp;</div><div class="yui-panel-container cjt-progress-overlay throbber cjt_progress_panel_container hide-scrollbars yui-overlay-hidden" id="yui-gen0_c" style="z-index: 2500; visibility: hidden; left: 590px; top: 383px; overflow: hidden;"><div id="yui-gen0" class="yui-module yui-overlay yui-panel cjt_progress_panel" style="visibility: inherit;"><input style="position: absolute; top: 1px; outline: 0px none currentcolor; margin: 0px; border: 0px none; padding: 0px; height: 1px; width: 1px; z-index: -1; opacity: 0;"><button style="height: 1px; width: 1px; position: absolute; left: -10000em; opacity: 0;" tabindex="-1"></button><div class="bd" style="border: 0px none;" id="yui-gen1"><div class="cjt-progress-overlay-body-liner"><div class="loader-tool"><div class="loader"></div></div><div class="cjt-progress-overlay-text-container"><span class="cjt-progress-overlay-text cjt-fading-text-field">Saving “index.html” …</span></div></div></div><input style="position: absolute; top: 1px; outline: 0px none currentcolor; margin: 0px; border: 0px none; padding: 0px; height: 1px; width: 1px; z-index: -1; opacity: 0;"></div><div class="underlay"></div></div>
+        <form action="javascript:void(0)" name="sform" onsubmit="loadfdata('sform_submit'); return false;" class="form-inline">
+            <table id="maintbl" border="0">
+                <tbody><tr class="header">
+                    <td style="padding: 5px">
+                        <div style="float:left; width:70%; padding-left:5px;">
+                            <label style="font-weight: 900; font-size:13px;">
+                                Editing:
+                                <input id="path" name="path" value="/home/pz9p3w4zkqm4/public_html/index.html" class="form-control">
+                            </label>
+                            <label>Encoding:
+                                <select id="charset" name="charset" class="form-control">
+                                
+                                    
+                                        <option value="ansi_x3.110-1983">
+                                            ansi_x3.110-1983
+                                        </option>
+                                    
+                                        <option value="ansi_x3.4-1968">
+                                            ansi_x3.4-1968
+                                        </option>
+                                    
+                                        <option value="armscii-8">
+                                            armscii-8
+                                        </option>
+                                    
+                                        <option value="asmo_449">
+                                            asmo_449
+                                        </option>
+                                    
+                                        <option value="big5">
+                                            big5
+                                        </option>
+                                    
+                                        <option value="big5-hkscs">
+                                            big5-hkscs
+                                        </option>
+                                    
+                                        <option value="brf">
+                                            brf
+                                        </option>
+                                    
+                                        <option value="bs_4730">
+                                            bs_4730
+                                        </option>
+                                    
+                                        <option value="bs_viewdata">
+                                            bs_viewdata
+                                        </option>
+                                    
+                                        <option value="cp10007">
+                                            cp10007
+                                        </option>
+                                    
+                                        <option value="cp1125">
+                                            cp1125
+                                        </option>
+                                    
+                                        <option value="cp1250">
+                                            cp1250
+                                        </option>
+                                    
+                                        <option value="cp1253">
+                                            cp1253
+                                        </option>
+                                    
+                                        <option value="cp1254">
+                                            cp1254
+                                        </option>
+                                    
+                                        <option value="cp1255">
+                                            cp1255
+                                        </option>
+                                    
+                                        <option value="cp1256">
+                                            cp1256
+                                        </option>
+                                    
+                                        <option value="cp1257">
+                                            cp1257
+                                        </option>
+                                    
+                                        <option value="cp1258">
+                                            cp1258
+                                        </option>
+                                    
+                                        <option value="cp737">
+                                            cp737
+                                        </option>
+                                    
+                                        <option value="cp775">
+                                            cp775
+                                        </option>
+                                    
+                                        <option value="csa_z243.4-1985-1">
+                                            csa_z243.4-1985-1
+                                        </option>
+                                    
+                                        <option value="csa_z243.4-1985-2">
+                                            csa_z243.4-1985-2
+                                        </option>
+                                    
+                                        <option value="csa_z243.4-1985-gr">
+                                            csa_z243.4-1985-gr
+                                        </option>
+                                    
+                                        <option value="csn_369103">
+                                            csn_369103
+                                        </option>
+                                    
+                                        <option value="cwi">
+                                            cwi
+                                        </option>
+                                    
+                                        <option value="dec-mcs">
+                                            dec-mcs
+                                        </option>
+                                    
+                                        <option value="din_66003">
+                                            din_66003
+                                        </option>
+                                    
+                                        <option value="ds_2089">
+                                            ds_2089
+                                        </option>
+                                    
+                                        <option value="ebcdic-at-de">
+                                            ebcdic-at-de
+                                        </option>
+                                    
+                                        <option value="ebcdic-at-de-a">
+                                            ebcdic-at-de-a
+                                        </option>
+                                    
+                                        <option value="ebcdic-ca-fr">
+                                            ebcdic-ca-fr
+                                        </option>
+                                    
+                                        <option value="ebcdic-dk-no">
+                                            ebcdic-dk-no
+                                        </option>
+                                    
+                                        <option value="ebcdic-dk-no-a">
+                                            ebcdic-dk-no-a
+                                        </option>
+                                    
+                                        <option value="ebcdic-es">
+                                            ebcdic-es
+                                        </option>
+                                    
+                                        <option value="ebcdic-es-a">
+                                            ebcdic-es-a
+                                        </option>
+                                    
+                                        <option value="ebcdic-es-s">
+                                            ebcdic-es-s
+                                        </option>
+                                    
+                                        <option value="ebcdic-fi-se">
+                                            ebcdic-fi-se
+                                        </option>
+                                    
+                                        <option value="ebcdic-fi-se-a">
+                                            ebcdic-fi-se-a
+                                        </option>
+                                    
+                                        <option value="ebcdic-fr">
+                                            ebcdic-fr
+                                        </option>
+                                    
+                                        <option value="ebcdic-is-friss">
+                                            ebcdic-is-friss
+                                        </option>
+                                    
+                                        <option value="ebcdic-it">
+                                            ebcdic-it
+                                        </option>
+                                    
+                                        <option value="ebcdic-pt">
+                                            ebcdic-pt
+                                        </option>
+                                    
+                                        <option value="ebcdic-uk">
+                                            ebcdic-uk
+                                        </option>
+                                    
+                                        <option value="ebcdic-us">
+                                            ebcdic-us
+                                        </option>
+                                    
+                                        <option value="ecma-cyrillic">
+                                            ecma-cyrillic
+                                        </option>
+                                    
+                                        <option value="es">
+                                            es
+                                        </option>
+                                    
+                                        <option value="es2">
+                                            es2
+                                        </option>
+                                    
+                                        <option value="euc-jisx0213">
+                                            euc-jisx0213
+                                        </option>
+                                    
+                                        <option value="euc-jp">
+                                            euc-jp
+                                        </option>
+                                    
+                                        <option value="euc-jp-ms">
+                                            euc-jp-ms
+                                        </option>
+                                    
+                                        <option value="euc-kr">
+                                            euc-kr
+                                        </option>
+                                    
+                                        <option value="euc-tw">
+                                            euc-tw
+                                        </option>
+                                    
+                                        <option value="gb18030">
+                                            gb18030
+                                        </option>
+                                    
+                                        <option value="gb2312">
+                                            gb2312
+                                        </option>
+                                    
+                                        <option value="gb_1988-80">
+                                            gb_1988-80
+                                        </option>
+                                    
+                                        <option value="gbk">
+                                            gbk
+                                        </option>
+                                    
+                                        <option value="georgian-academy">
+                                            georgian-academy
+                                        </option>
+                                    
+                                        <option value="georgian-ps">
+                                            georgian-ps
+                                        </option>
+                                    
+                                        <option value="gost_19768-74">
+                                            gost_19768-74
+                                        </option>
+                                    
+                                        <option value="greek-ccitt">
+                                            greek-ccitt
+                                        </option>
+                                    
+                                        <option value="greek7">
+                                            greek7
+                                        </option>
+                                    
+                                        <option value="greek7-old">
+                                            greek7-old
+                                        </option>
+                                    
+                                        <option value="gsm03.38">
+                                            gsm03.38
+                                        </option>
+                                    
+                                        <option value="hp-greek8">
+                                            hp-greek8
+                                        </option>
+                                    
+                                        <option value="hp-roman8">
+                                            hp-roman8
+                                        </option>
+                                    
+                                        <option value="hp-roman9">
+                                            hp-roman9
+                                        </option>
+                                    
+                                        <option value="hp-thai8">
+                                            hp-thai8
+                                        </option>
+                                    
+                                        <option value="hp-turkish8">
+                                            hp-turkish8
+                                        </option>
+                                    
+                                        <option value="hz-gb-2312">
+                                            hz-gb-2312
+                                        </option>
+                                    
+                                        <option value="ibm037">
+                                            ibm037
+                                        </option>
+                                    
+                                        <option value="ibm038">
+                                            ibm038
+                                        </option>
+                                    
+                                        <option value="ibm1004">
+                                            ibm1004
+                                        </option>
+                                    
+                                        <option value="ibm1026">
+                                            ibm1026
+                                        </option>
+                                    
+                                        <option value="ibm1047">
+                                            ibm1047
+                                        </option>
+                                    
+                                        <option value="ibm1124">
+                                            ibm1124
+                                        </option>
+                                    
+                                        <option value="ibm1129">
+                                            ibm1129
+                                        </option>
+                                    
+                                        <option value="ibm1132">
+                                            ibm1132
+                                        </option>
+                                    
+                                        <option value="ibm1133">
+                                            ibm1133
+                                        </option>
+                                    
+                                        <option value="ibm1160">
+                                            ibm1160
+                                        </option>
+                                    
+                                        <option value="ibm1161">
+                                            ibm1161
+                                        </option>
+                                    
+                                        <option value="ibm1162">
+                                            ibm1162
+                                        </option>
+                                    
+                                        <option value="ibm1163">
+                                            ibm1163
+                                        </option>
+                                    
+                                        <option value="ibm1164">
+                                            ibm1164
+                                        </option>
+                                    
+                                        <option value="ibm256">
+                                            ibm256
+                                        </option>
+                                    
+                                        <option value="ibm273">
+                                            ibm273
+                                        </option>
+                                    
+                                        <option value="ibm274">
+                                            ibm274
+                                        </option>
+                                    
+                                        <option value="ibm275">
+                                            ibm275
+                                        </option>
+                                    
+                                        <option value="ibm277">
+                                            ibm277
+                                        </option>
+                                    
+                                        <option value="ibm278">
+                                            ibm278
+                                        </option>
+                                    
+                                        <option value="ibm280">
+                                            ibm280
+                                        </option>
+                                    
+                                        <option value="ibm281">
+                                            ibm281
+                                        </option>
+                                    
+                                        <option value="ibm284">
+                                            ibm284
+                                        </option>
+                                    
+                                        <option value="ibm285">
+                                            ibm285
+                                        </option>
+                                    
+                                        <option value="ibm290">
+                                            ibm290
+                                        </option>
+                                    
+                                        <option value="ibm297">
+                                            ibm297
+                                        </option>
+                                    
+                                        <option value="ibm420">
+                                            ibm420
+                                        </option>
+                                    
+                                        <option value="ibm423">
+                                            ibm423
+                                        </option>
+                                    
+                                        <option value="ibm424">
+                                            ibm424
+                                        </option>
+                                    
+                                        <option value="ibm437">
+                                            ibm437
+                                        </option>
+                                    
+                                        <option value="ibm500">
+                                            ibm500
+                                        </option>
+                                    
+                                        <option value="ibm850">
+                                            ibm850
+                                        </option>
+                                    
+                                        <option value="ibm851">
+                                            ibm851
+                                        </option>
+                                    
+                                        <option value="ibm852">
+                                            ibm852
+                                        </option>
+                                    
+                                        <option value="ibm855">
+                                            ibm855
+                                        </option>
+                                    
+                                        <option value="ibm856">
+                                            ibm856
+                                        </option>
+                                    
+                                        <option value="ibm857">
+                                            ibm857
+                                        </option>
+                                    
+                                        <option value="ibm860">
+                                            ibm860
+                                        </option>
+                                    
+                                        <option value="ibm861">
+                                            ibm861
+                                        </option>
+                                    
+                                        <option value="ibm862">
+                                            ibm862
+                                        </option>
+                                    
+                                        <option value="ibm863">
+                                            ibm863
+                                        </option>
+                                    
+                                        <option value="ibm864">
+                                            ibm864
+                                        </option>
+                                    
+                                        <option value="ibm865">
+                                            ibm865
+                                        </option>
+                                    
+                                        <option value="ibm866">
+                                            ibm866
+                                        </option>
+                                    
+                                        <option value="ibm866nav">
+                                            ibm866nav
+                                        </option>
+                                    
+                                        <option value="ibm868">
+                                            ibm868
+                                        </option>
+                                    
+                                        <option value="ibm869">
+                                            ibm869
+                                        </option>
+                                    
+                                        <option value="ibm870">
+                                            ibm870
+                                        </option>
+                                    
+                                        <option value="ibm871">
+                                            ibm871
+                                        </option>
+                                    
+                                        <option value="ibm874">
+                                            ibm874
+                                        </option>
+                                    
+                                        <option value="ibm875">
+                                            ibm875
+                                        </option>
+                                    
+                                        <option value="ibm880">
+                                            ibm880
+                                        </option>
+                                    
+                                        <option value="ibm891">
+                                            ibm891
+                                        </option>
+                                    
+                                        <option value="ibm903">
+                                            ibm903
+                                        </option>
+                                    
+                                        <option value="ibm904">
+                                            ibm904
+                                        </option>
+                                    
+                                        <option value="ibm905">
+                                            ibm905
+                                        </option>
+                                    
+                                        <option value="ibm918">
+                                            ibm918
+                                        </option>
+                                    
+                                        <option value="ibm922">
+                                            ibm922
+                                        </option>
+                                    
+                                        <option value="iec_p27-1">
+                                            iec_p27-1
+                                        </option>
+                                    
+                                        <option value="inis">
+                                            inis
+                                        </option>
+                                    
+                                        <option value="inis-8">
+                                            inis-8
+                                        </option>
+                                    
+                                        <option value="inis-cyrillic">
+                                            inis-cyrillic
+                                        </option>
+                                    
+                                        <option value="invariant">
+                                            invariant
+                                        </option>
+                                    
+                                        <option value="isiri-3342">
+                                            isiri-3342
+                                        </option>
+                                    
+                                        <option value="iso-8859-1">
+                                            iso-8859-1
+                                        </option>
+                                    
+                                        <option value="iso-8859-10">
+                                            iso-8859-10
+                                        </option>
+                                    
+                                        <option value="iso-8859-11">
+                                            iso-8859-11
+                                        </option>
+                                    
+                                        <option value="iso-8859-13">
+                                            iso-8859-13
+                                        </option>
+                                    
+                                        <option value="iso-8859-14">
+                                            iso-8859-14
+                                        </option>
+                                    
+                                        <option value="iso-8859-15">
+                                            iso-8859-15
+                                        </option>
+                                    
+                                        <option value="iso-8859-16">
+                                            iso-8859-16
+                                        </option>
+                                    
+                                        <option value="iso-8859-2">
+                                            iso-8859-2
+                                        </option>
+                                    
+                                        <option value="iso-8859-3">
+                                            iso-8859-3
+                                        </option>
+                                    
+                                        <option value="iso-8859-4">
+                                            iso-8859-4
+                                        </option>
+                                    
+                                        <option value="iso-8859-5">
+                                            iso-8859-5
+                                        </option>
+                                    
+                                        <option value="iso-8859-6">
+                                            iso-8859-6
+                                        </option>
+                                    
+                                        <option value="iso-8859-7">
+                                            iso-8859-7
+                                        </option>
+                                    
+                                        <option value="iso-8859-8">
+                                            iso-8859-8
+                                        </option>
+                                    
+                                        <option value="iso-8859-9">
+                                            iso-8859-9
+                                        </option>
+                                    
+                                        <option value="iso-8859-9e">
+                                            iso-8859-9e
+                                        </option>
+                                    
+                                        <option value="iso-ir-197">
+                                            iso-ir-197
+                                        </option>
+                                    
+                                        <option value="iso-ir-209">
+                                            iso-ir-209
+                                        </option>
+                                    
+                                        <option value="iso-ir-90">
+                                            iso-ir-90
+                                        </option>
+                                    
+                                        <option value="iso_10367-box">
+                                            iso_10367-box
+                                        </option>
+                                    
+                                        <option value="iso_10646">
+                                            iso_10646
+                                        </option>
+                                    
+                                        <option value="iso_11548-1">
+                                            iso_11548-1
+                                        </option>
+                                    
+                                        <option value="iso_2033-1983">
+                                            iso_2033-1983
+                                        </option>
+                                    
+                                        <option value="iso_5427">
+                                            iso_5427
+                                        </option>
+                                    
+                                        <option value="iso_5427-ext">
+                                            iso_5427-ext
+                                        </option>
+                                    
+                                        <option value="iso_5428">
+                                            iso_5428
+                                        </option>
+                                    
+                                        <option value="iso_646.basic">
+                                            iso_646.basic
+                                        </option>
+                                    
+                                        <option value="iso_646.irv">
+                                            iso_646.irv
+                                        </option>
+                                    
+                                        <option value="iso_6937">
+                                            iso_6937
+                                        </option>
+                                    
+                                        <option value="iso_6937-2-25">
+                                            iso_6937-2-25
+                                        </option>
+                                    
+                                        <option value="iso_6937-2-add">
+                                            iso_6937-2-add
+                                        </option>
+                                    
+                                        <option value="iso_8859-1,gl">
+                                            iso_8859-1,gl
+                                        </option>
+                                    
+                                        <option value="iso_8859-supp">
+                                            iso_8859-supp
+                                        </option>
+                                    
+                                        <option value="it">
+                                            it
+                                        </option>
+                                    
+                                        <option value="jis_c6220-1969-jp">
+                                            jis_c6220-1969-jp
+                                        </option>
+                                    
+                                        <option value="jis_c6220-1969-ro">
+                                            jis_c6220-1969-ro
+                                        </option>
+                                    
+                                        <option value="jis_c6229-1984-a">
+                                            jis_c6229-1984-a
+                                        </option>
+                                    
+                                        <option value="jis_c6229-1984-b">
+                                            jis_c6229-1984-b
+                                        </option>
+                                    
+                                        <option value="jis_c6229-1984-b-add">
+                                            jis_c6229-1984-b-add
+                                        </option>
+                                    
+                                        <option value="jis_c6229-1984-hand">
+                                            jis_c6229-1984-hand
+                                        </option>
+                                    
+                                        <option value="jis_c6229-1984-hand-add">
+                                            jis_c6229-1984-hand-add
+                                        </option>
+                                    
+                                        <option value="jis_c6229-1984-kana">
+                                            jis_c6229-1984-kana
+                                        </option>
+                                    
+                                        <option value="jis_x0201">
+                                            jis_x0201
+                                        </option>
+                                    
+                                        <option value="johab">
+                                            johab
+                                        </option>
+                                    
+                                        <option value="jus_i.b1.002">
+                                            jus_i.b1.002
+                                        </option>
+                                    
+                                        <option value="jus_i.b1.003-mac">
+                                            jus_i.b1.003-mac
+                                        </option>
+                                    
+                                        <option value="jus_i.b1.003-serb">
+                                            jus_i.b1.003-serb
+                                        </option>
+                                    
+                                        <option value="koi-8">
+                                            koi-8
+                                        </option>
+                                    
+                                        <option value="koi8-r">
+                                            koi8-r
+                                        </option>
+                                    
+                                        <option value="koi8-ru">
+                                            koi8-ru
+                                        </option>
+                                    
+                                        <option value="koi8-t">
+                                            koi8-t
+                                        </option>
+                                    
+                                        <option value="koi8-u">
+                                            koi8-u
+                                        </option>
+                                    
+                                        <option value="ks_c_5601-1987">
+                                            ks_c_5601-1987
+                                        </option>
+                                    
+                                        <option value="ksc5636">
+                                            ksc5636
+                                        </option>
+                                    
+                                        <option value="latin-greek">
+                                            latin-greek
+                                        </option>
+                                    
+                                        <option value="latin-greek-1">
+                                            latin-greek-1
+                                        </option>
+                                    
+                                        <option value="mac-centraleurope">
+                                            mac-centraleurope
+                                        </option>
+                                    
+                                        <option value="mac-cyrillic">
+                                            mac-cyrillic
+                                        </option>
+                                    
+                                        <option value="mac-is">
+                                            mac-is
+                                        </option>
+                                    
+                                        <option value="mac-sami">
+                                            mac-sami
+                                        </option>
+                                    
+                                        <option value="mac-uk">
+                                            mac-uk
+                                        </option>
+                                    
+                                        <option value="macintosh">
+                                            macintosh
+                                        </option>
+                                    
+                                        <option value="mik">
+                                            mik
+                                        </option>
+                                    
+                                        <option value="msz_7795.3">
+                                            msz_7795.3
+                                        </option>
+                                    
+                                        <option value="nats-dano">
+                                            nats-dano
+                                        </option>
+                                    
+                                        <option value="nats-dano-add">
+                                            nats-dano-add
+                                        </option>
+                                    
+                                        <option value="nats-sefi">
+                                            nats-sefi
+                                        </option>
+                                    
+                                        <option value="nats-sefi-add">
+                                            nats-sefi-add
+                                        </option>
+                                    
+                                        <option value="nc_nc00-10">
+                                            nc_nc00-10
+                                        </option>
+                                    
+                                        <option value="nextstep">
+                                            nextstep
+                                        </option>
+                                    
+                                        <option value="nf_z_62-010">
+                                            nf_z_62-010
+                                        </option>
+                                    
+                                        <option value="nf_z_62-010_1973">
+                                            nf_z_62-010_1973
+                                        </option>
+                                    
+                                        <option value="ns_4551-1">
+                                            ns_4551-1
+                                        </option>
+                                    
+                                        <option value="ns_4551-2">
+                                            ns_4551-2
+                                        </option>
+                                    
+                                        <option value="pt">
+                                            pt
+                                        </option>
+                                    
+                                        <option value="pt154">
+                                            pt154
+                                        </option>
+                                    
+                                        <option value="pt2">
+                                            pt2
+                                        </option>
+                                    
+                                        <option value="rk1048">
+                                            rk1048
+                                        </option>
+                                    
+                                        <option value="sami">
+                                            sami
+                                        </option>
+                                    
+                                        <option value="sami-ws2">
+                                            sami-ws2
+                                        </option>
+                                    
+                                        <option value="sen_850200_b">
+                                            sen_850200_b
+                                        </option>
+                                    
+                                        <option value="sen_850200_c">
+                                            sen_850200_c
+                                        </option>
+                                    
+                                        <option value="shift_jis">
+                                            shift_jis
+                                        </option>
+                                    
+                                        <option value="shift_jisx0213">
+                                            shift_jisx0213
+                                        </option>
+                                    
+                                        <option value="t.101-g2">
+                                            t.101-g2
+                                        </option>
+                                    
+                                        <option value="t.61-7bit">
+                                            t.61-7bit
+                                        </option>
+                                    
+                                        <option value="t.61-8bit">
+                                            t.61-8bit
+                                        </option>
+                                    
+                                        <option value="tcvn5712-1">
+                                            tcvn5712-1
+                                        </option>
+                                    
+                                        <option value="tis-620">
+                                            tis-620
+                                        </option>
+                                    
+                                        <option value="tscii">
+                                            tscii
+                                        </option>
+                                    
+                                        <option value="us-ascii">
+                                            us-ascii
+                                        </option>
+                                    
+                                        <option value="utf-7">
+                                            utf-7
+                                        </option>
+                                    
+                                        <option value="utf-8" selected="selected">
+                                            utf-8
+                                        </option>
+                                    
+                                        <option value="videotex-suppl">
+                                            videotex-suppl
+                                        </option>
+                                    
+                                        <option value="viscii">
+                                            viscii
+                                        </option>
+                                    
+                                        <option value="windows-1251">
+                                            windows-1251
+                                        </option>
+                                    
+                                        <option value="windows-1252">
+                                            windows-1252
+                                        </option>
+                                    
+                                        <option value="windows-31j">
+                                            windows-31j
+                                        </option>
+                                    
+                                
+                                </select>
+                            </label>
+                            <input onclick="loadfile(this);" class="btn btn-default" value="Re-open" id="btnReOpen" type="button">
+                        </div>
+                        <div style="float:right;padding-right:5px">
+                            <button type="button" class="btn btn-default" id="switch_editor_control" onclick="try {toggle_EditArea(this)} catch(e) {} return false">
+                                
+                                    Use Code Editor
+                                
+                            </button>
+                            &nbsp;
+                            <input onclick="confirm_close(this);" class="btn btn-default" value="Close" id="btnClose" type="button">
+                            <button type="submit" id="sform_submit" class="btn btn-primary" style="font-weight:bold">
+                                Save Changes
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="codewindow_container">
+                        
+                            <textarea id="codewindow" class="codepress " name="page" style="width: 1437px; height: 777px;" wrap="soft">&lt;!DOCTYPE
+ html&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Affluence Digital Media :: Creating value to Publisher to 
+make them Affluent&lt;/title&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;!--[if IE]&gt;&lt;meta http-equiv="X-UA-Compatible" 
+content="IE=edge"&gt;&lt;![endif]--&gt;
+&lt;meta name="robots" content="index, follow" &gt;
+&lt;meta name="keywords" content="Digital Media, Online Advertising, 
+CPM, CPC, CPA, Video Ads, banner Ads" &gt;
+&lt;meta name="description" content="Creating value to Publisher to make
+ them Affluent" &gt;
+&lt;meta name="author" content=""&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, 
+maximum-scale=1"&gt;
+&lt;meta name="theme-color" content="#2a2b2f"&gt;
+
+&lt;!-- FAVICONS --&gt;
+&lt;link rel="shortcut icon" href="images/favicon.svg"&gt;
+&lt;link rel="apple-touch-icon" href="images/favicon.svg"&gt;
+&lt;link rel="apple-touch-icon" sizes="72x72" 
+href="images/favicon.svg"&gt;
+&lt;link rel="apple-touch-icon" sizes="114x114" 
+href="images/favicon.svg"&gt;
+&lt;link rel="icon" sizes="192x192" href="images/favicon.svg"&gt;
+
+&lt;!-- CSS --&gt;
+&lt;!--  GOOGLE FONT --&gt;
+&lt;link 
+href="https://fonts.googleapis.com/css?family=Poppins:500,600,300%7COpen+Sans:400,300,700"
+ rel="stylesheet" type="text/css"&gt;
+
+&lt;!-- REVOSLIDER CSS SETTINGS --&gt;
+
+&lt;!-- REVOLUTION STYLE SHEETS --&gt;
+&lt;link href="revo-slider/css/settings-custom.css" rel="stylesheet" 
+type="text/css"&gt;
+
+&lt;!--  BOOTSTRAP --&gt;
+&lt;link rel="stylesheet" href="css/bootstrap.min.css"&gt;
+
+&lt;!-- ICONS ELEGANT FONT &amp; FONT AWESOME &amp; LINEA ICONS  --&gt;
+&lt;link rel="stylesheet" href="css/icons-fonts.css" &gt;
+
+&lt;!--  CSS THEME --&gt;
+&lt;link rel="stylesheet" href="css/style.css" &gt;
+
+&lt;!-- ANIMATE --&gt;
+&lt;link rel="stylesheet" href="css/animate.min.css"&gt;
+
+&lt;!-- IE Warning CSS --&gt;
+&lt;!--[if lte IE 8]&gt;&lt;link rel="stylesheet" type="text/css" 
+href="css/ie-warning.css" &gt;&lt;![endif]--&gt;
+&lt;!--[if lte IE 8]&gt;&lt;link rel="stylesheet" type="text/css" 
+href="css/ie8-fix.css" &gt;&lt;![endif]--&gt;
+
+&lt;!-- Magnific popup, Owl Carousel Assets in style.css --&gt;
+
+&lt;!-- CSS end --&gt;
+
+&lt;!-- JS begin some js files in bottom of file--&gt;
+
+&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and 
+media queries --&gt;
+&lt;!-- WARNING: Respond.js doesn't work if you view the page via 
+file:// --&gt;
+&lt;!--[if lt IE 9]&gt;
+		  &lt;script 
+src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;
+
+		  &lt;script 
+src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;
+
+		&lt;![endif]--&gt;
+&lt;style type="text/css"&gt;
+  .row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex &gt; [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+.fes1-box-icon{
+  position: relative !important;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;!-- LOADER --&gt;
+&lt;div id="loader-overflow"&gt;
+  &lt;div id="loader3" class="loader-cont"&gt;Please enable 
+JS&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="wrap" class="boxed"&gt;
+  &lt;div class="grey-bg"&gt; &lt;!-- Grey BG  --&gt; 
+    
+    &lt;!--[if lte IE 8]&gt;
+				&lt;div id="ie-container"&gt;
+					&lt;div id="ie-cont-close"&gt;
+						&lt;a href="#" 
+onclick="javascript&amp;#058;this.parentNode.parentNode.style.display="none";
+ return false;"&gt;&lt;img src="images/ie-warn/ie-warning-close.jpg" 
+style="border: none;" alt="Close"&gt;&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div id="ie-cont-content" &gt;
+						&lt;div id="ie-cont-warning"&gt;
+							&lt;img src="images/ie-warn/ie-warning.jpg" alt="Warning!"&gt;
+						&lt;/div&gt;
+						&lt;div id="ie-cont-text" &gt;
+							&lt;div id="ie-text-bold"&gt;
+								You are using an outdated browser
+							&lt;/div&gt;
+							&lt;div id="ie-text"&gt;
+								For a better experience using this site, please upgrade to a 
+modern web browser.
+							&lt;/div&gt;
+						&lt;/div&gt;
+						&lt;div id="ie-cont-brows" &gt;
+							&lt;a href="http://www.firefox.com" target="_blank"&gt;&lt;img 
+src="images/ie-warn/ie-warning-firefox.jpg" alt="Download 
+Firefox"&gt;&lt;/a&gt;
+							&lt;a href="http://www.opera.com/download/" 
+target="_blank"&gt;&lt;img src="images/ie-warn/ie-warning-opera.jpg" 
+alt="Download Opera"&gt;&lt;/a&gt;
+							&lt;a href="http://www.apple.com/safari/download/" 
+target="_blank"&gt;&lt;img src="images/ie-warn/ie-warning-safari.jpg" 
+alt="Download Safari"&gt;&lt;/a&gt;
+							&lt;a href="http://www.google.com/chrome" 
+target="_blank"&gt;&lt;img src="images/ie-warn/ie-warning-chrome.jpg" 
+alt="Download Google Chrome"&gt;&lt;/a&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;![endif]--&gt;
+    
+    &lt;div class="header-black-bg"&gt;&lt;/div&gt;
+    
+    &lt;!-- NEED FOR TRANSPARENT HEADER ON MOBILE --&gt;
+    &lt;header id="nav" class="header header-1 header-black 
+affix-top"&gt;
+      &lt;div class="header-wrapper"&gt;
+        &lt;div class="container-m-30 clearfix"&gt;
+          &lt;div class="logo-row"&gt; 
+            
+            &lt;!-- LOGO --&gt;
+            &lt;div class="logo-container-2"&gt;
+              &lt;div class="logo-1"&gt; &lt;a href="index.html" 
+class="clearfix"&gt; &lt;img src="images/affluence-logo.svg" 
+class="logo-img" alt="affluence" style="min-height:60px;"&gt; &lt;/a&gt;
+ &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- BUTTON --&gt;
+            &lt;div class="menu-btn-respons-container"&gt;
+              &lt;button id="menu-btn" type="button" 
+class="navbar-toggle btn-navbar collapsed" data-toggle="collapse" 
+data-target="#main-menu .navbar-collapse"&gt; &lt;span 
+aria-hidden="true" class="icon_menu hamb-mob-icon"&gt;&lt;/span&gt; 
+&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- MAIN MENU CONTAINER --&gt;
+        &lt;div class="main-menu-container"&gt;
+          &lt;div class="container-m-30 clearfix"&gt; 
+            
+            &lt;!-- MAIN MENU --&gt;
+            &lt;div id="main-menu"&gt;
+              &lt;div class="navbar navbar-default" 
+role="navigation"&gt; 
+                
+                &lt;!-- MAIN MENU LIST --&gt;
+                &lt;nav class="collapse collapsing navbar-collapse 
+right-1024"&gt;
+                  &lt;ul id="nav-onepage" class="nav navbar-nav"&gt;
+                    
+                    &lt;!-- MENU ITEM --&gt;
+                    &lt;li class="current"&gt; &lt;a 
+href="#index-link"&gt;
+                      &lt;div 
+class="main-menu-title"&gt;Home&lt;/div&gt;
+                      &lt;/a&gt; &lt;/li&gt;
+                    
+                    &lt;!-- MENU ITEM --&gt;
+                    &lt;li&gt; &lt;a href="#about-link"&gt;
+                      &lt;div class="main-menu-title"&gt;About 
+us&lt;/div&gt;
+                      &lt;/a&gt; &lt;/li&gt;
+                    
+                    &lt;!-- MENU ITEM --&gt;
+                    &lt;li&gt; &lt;a href="#services-link"&gt;
+                      &lt;div 
+class="main-menu-title"&gt;Services&lt;/div&gt;
+                      &lt;/a&gt; &lt;/li&gt;
+                    
+                    &lt;!-- MENU ITEM --&gt;
+                    &lt;li&gt; &lt;a href="#benefits-link"&gt;
+                      &lt;div 
+class="main-menu-title"&gt;Benefits&lt;/div&gt;
+                      &lt;/a&gt; &lt;/li&gt;
+                    
+                    &lt;!-- MENU ITEM --&gt;
+                    &lt;li&gt; &lt;a href="#contact-link"&gt;
+                      &lt;div 
+class="main-menu-title"&gt;Contact&lt;/div&gt;
+                      &lt;/a&gt; &lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/nav&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- END main-menu --&gt; 
+            
+          &lt;/div&gt;
+          &lt;!-- END container-m-30 --&gt; 
+          
+        &lt;/div&gt;
+        &lt;!-- END main-menu-container --&gt; 
+      &lt;/div&gt;
+    &lt;/header&gt;
+    
+    &lt;!-- SLIDER Revo Hero 4 --&gt;
+    &lt;div id="index-link" class="relative"&gt;
+      &lt;div class="rev_slider_wrapper fullwidthbanner-container" 
+id="rev_slider_280_1_wrapper" style="margin:0px 
+auto;background-color:#101010;padding:0px;margin-top:0px;margin-bottom:0px;"&gt;
+ 
+        &lt;!-- START REVOLUTION SLIDER 5.1.4 fullwidth mode --&gt;
+        &lt;div class="rev_slider fullwidthabanner" data-version="5.1.4"
+ id="rev_slider_280_1" style="display:none; padding:30px;"&gt;
+          &lt;ul&gt;
+            
+            &lt;!-- SLIDE  --&gt;
+            &lt;li data-index="rs-673" data-transition="zoomout" 
+data-slotamount="default" data-easein="default" data-easeout="default" 
+data-masterspeed="default"  data-rotate="0" data-saveperformance="off" 
+data-title="CONSTRUCT WORKS" data-description=""&gt; 
+              &lt;!-- MAIN IMAGE --&gt; 
+              &lt;img src="images/hero-slide.jpg" alt="" 
+data-bgposition="center center" data-bgfit="cover" 
+data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" 
+data-no-retina&gt; 
+              &lt;!-- LAYERS --&gt; 
+              
+              &lt;!-- LAYER NR. 1 --&gt;
+              &lt;div class="tp-caption font-poppins font-white 
+tp-resizeme rs-parallaxlevel-6" id="slide-8981-layer-1" style="z-index: 
+8; white-space: nowrap;"
+                            data-fontsize="['20','24','24','24']" 
+                            data-fontweight="400" 
+                            data-height="none" 
+                            data-lineheight="['74','74','74','74']" 
+                            data-responsive_offset="on" 
+                            data-splitin="none" 
+                            data-splitout="none" 
+                            
+                            
+data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1400,"to":"o:1;","delay":350,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"nothing"}]'
+
+                            
+                            data-whitespace="nowrap" 
+                            data-width="none" 
+                            
+data-x="['center','center','center','center']" 
+                            data-hoffset="['0','0','0',0']" 
+                            
+data-y="['center','center','center','center']" 
+                            data-voffset="['-70','-90','-70','-55']"&gt;
+ Creating value to Publishers to make them &lt;/div&gt;
+              
+              &lt;!-- LAYER NR. 2 --&gt;
+              &lt;div class="tp-caption font-poppins font-white 
+tp-resizeme rs-parallaxlevel-6" id="slide-8981-layer-2" style="z-index: 
+8; white-space: nowrap;"
+                            data-fontsize="['50','50','50','50']" 
+                            data-fontweight="600" 
+                            data-height="none" 
+                            data-lineheight="['120','130','110','95']" 
+                            data-responsive_offset="on" 
+                            data-splitin="none" 
+                            data-splitout="none" 
+                            
+                            
+data-frames='[{"from":"z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":550,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"}]'
+
+                   
+                            data-whitespace="nowrap" 
+                            data-width="none" 
+                            
+data-x="['center','center','center','center']" 
+                            data-hoffset="['0','0','0',0']" 
+                            
+data-y="['center','center','center','center']" 
+                            data-voffset="['0','0','0',0']"&gt; 
+AFFLUENT! &lt;/div&gt;
+              
+              &lt;!-- LAYER NR. 3 --&gt;
+             
+            &lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;div class="tp-bannertimer tp-bottom" style="visibility: 
+hidden !important;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- END REVOLUTION SLIDER --&gt; 
+      
+    &lt;/div&gt;
+    &lt;!-- FEATURES 1 --&gt;
+    &lt;div class="page-section"&gt;
+      &lt;div class="container fes1-cont pb-0"&gt;
+            &lt;div class="row"&gt;
+              &lt;div class="col-md-12 text-center"&gt;
+                &lt;div class="fes1-main-title-cont wow fadeInDown"&gt;
+                  &lt;h2 class="section-title2 text-center 
+mb-10"&gt;&lt;strong&gt;We Monetize Your Websites 
+                    Across Multiple Media 
+Platforms&lt;/strong&gt;&lt;/h2&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="row" style="margin-top: 50px; margin-bottom: 
+50px; text-align: center;"&gt;
+              &lt;div class="col-md-4 text-center"&gt;
+                &lt;div class="fes1-box wow fadeIn" &gt;
+                  &lt;div class="fes1-box-icon"&gt;
+                    &lt;div class="icon 
+icon-basic-display"&gt;&lt;h3&gt;Desktop&lt;/h3&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="col-md-4 text-center"&gt;
+                &lt;div class="fes1-box wow fadeIn" 
+data-wow-delay="200ms"&gt;
+                  &lt;div class="fes1-box-icon"&gt;
+                    &lt;div class="icon 
+icon-basic-smartphone"&gt;&lt;h3&gt;Mobile&lt;/h3&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="col-md-4 text-center"&gt;
+                &lt;div class="fes1-box wow fadeIn" 
+data-wow-delay="400ms"&gt;
+                  &lt;div class="fes1-box-icon"&gt;
+                    &lt;div class="icon 
+icon-music-play-button"&gt;&lt;h3&gt;Video&lt;/h3&gt;&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;div class="page-section" id="about-link"&gt;
+      &lt;div class="container-fluid"&gt;
+        &lt;div data-equal=".equal-height" class="row row-sm-fix"&gt;
+          &lt;div class="col-md-6 fes12-img equal-height"  
+style="background:#697b7f;"&gt;
+            &lt;div class="fes2-main-text-cont text-white"&gt;
+              &lt;h2 class="section-title2 text-center mb-10 
+text-white"&gt;&lt;strong&gt;About us&lt;/strong&gt; &lt;/div&gt;
+              &lt;div class="fes2-text-cont"&gt;The team at Affluence 
+Digital Media, which has been in this business for over a decade and are
+ dedicated in providing world-class advertising solutions to its 
+partners to generate huge returns. &lt;br&gt;
+                &lt;br&gt;
+                We understand Online advertising and thrive to increase 
+revenue to our Partner sites. Our approach is to work with the 
+Publishers in a very open &amp; transparent way to achieve our common 
+goals.&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 fes12-img equal-height" 
+style="background:#EC883C;"&gt;
+            &lt;div class="fes2-main-text-cont text-black"&gt;
+              &lt;div class="fes2-title-45 font-poppins"&gt; 
+&lt;strong&gt;Vision&lt;/strong&gt; &lt;/div&gt;
+              &lt;div class="fes2-text-cont"&gt;We envision being more 
+reliable Ad Network by providing high quality Advertising opportunities 
+to our publishers and help them increase their Ad Revenues.&lt;/div&gt;
+              &lt;br&gt;
+              &lt;br&gt;
+              &lt;div class="fes2-title-45 font-poppins"&gt; 
+&lt;strong&gt;Mission&lt;/strong&gt; &lt;/div&gt;
+              &lt;div class="fes2-text-cont"&gt;Increasing the 
+publishers Ad revenue by providing new ways of Advertisements. To set 
+high standard in Ad quality and content related Ads. To provide all 
+possible guidance to Publishers which would help them in improving their
+ performance from all aspects &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- FEATURES 12 HALF COLORED 
+    &lt;div class="page-section" id="about-link" 
+style="background:#697b7f;"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row" style="padding-top: 20px; padding-bottom: 
+20px;"&gt;
+          &lt;div class="col-md-12 text-white"&gt;
+            
+              &lt;div class="row"&gt;
+                  &lt;div class="col-md-6"&gt;
+              &lt;h2 class="text-white"&gt;About us&lt;/h2&gt;
+              &lt;p style="font-size: 18px;text-align: justify;"&gt;The 
+team at Affluence Digital Media, which has been in this business for 
+over a decade and are dedicated in providing world-class advertising 
+solutions to its partners to generate huge returns. &lt;br&gt;&lt;br&gt;
+ We understand Online advertising and thrive to increase revenue to our 
+Partner sites. Our approach is to work with the Publishers in a very 
+open &amp; transparent way to achieve our common goals.&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class="col-md-6"&gt;
+
+              &lt;h2 class="text-white"&gt;Vision&lt;/h2&gt;
+              &lt;p style="font-size: 18px;text-align: justify;"&gt;We 
+envision being more reliable Ad Network by providing high quality 
+Advertising opportunities to our publishers and help them increase their
+ Ad Revenues.&lt;/p&gt;
+              
+              &lt;h2 class="text-white"&gt;Mission&lt;/h2&gt;
+              &lt;p style="font-size: 18px;text-align: 
+justify;"&gt;Increasing the publishers Ad revenue by providing new ways 
+of Advertisements.	To set high standard in Ad quality and content 
+related Ads. To provide all possible guidance to Publishers which would 
+help them in improving their performance from all aspects 
+&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          
+          &lt;/div&gt;    
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    --&gt;
+    
+    &lt;!-- FEATURES 17 OUR SERVICES 2 --&gt;
+    &lt;div id="services-link" class="page-section pt-50 pb-50"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;h2 class="section-title2 text-center 
+mb-10"&gt;&lt;strong&gt;Our Services&lt;/strong&gt;&lt;/h2&gt;
+            &lt;p class="mb-45 p-0 text-center"&gt;Affluence Digital 
+Media aims to maximize the Publishers revenue and delivering more value 
+to Advertisers. We understand Online advertising and thrive to increase 
+revenue to our Partner sites. Our approach is to work with the 
+Publishers in a very open &amp; transparent way to achieve our common 
+goals.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-12 col-sm-6 col-md-6"&gt;
+            &lt;div class="mb-40 wow fadeIn"&gt;
+              &lt;div class="fes17-title-cont" &gt;
+                &lt;div class="fes17-box-icon"&gt;
+                  &lt;div class="icon 
+icon-ecommerce-graph-increase"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;h3&gt;&lt;strong&gt;Yield 
+Optimization&lt;/strong&gt;&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class="text-justify"&gt; &lt;strong&gt;Help our 
+Publishers generate maximum Yields&lt;/strong&gt;&lt;br&gt;
+We at Affluence Digital Media have the team who can help in getting the 
+Publishers more revenue from their sites and achieve their goals. 
+Through Dynamic Allocation, Inventory access in real-time to Advertisers
+ and the optimisation tools we will help our Publishers to generate 
+maximum yields. When meeting the demand of Advertisers, we help our 
+Partners technically and administratively by setting-up your Account 
+settings, do Ad Optimisation, Performance monitoring and Inventory 
+Management.
+ &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-12 col-sm-6 col-md-6"&gt;
+            &lt;div class="mb-40 wow fadeIn" data-wow-delay="200ms"&gt;
+              &lt;div class="fes17-title-cont" &gt;
+                &lt;div class="fes17-box-icon"&gt;
+                  &lt;div class="icon 
+icon-basic-display"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;h3&gt;&lt;strong&gt;Display &amp; 
+Mobile&lt;/strong&gt;&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class="text-justify"&gt; &lt;strong&gt;More 
+Advertisers for your Display &amp; Mobile Ad 
+Inventory&lt;/strong&gt;&lt;br&gt;
+With a huge pool of Advertisers, we provide our Publishers a steady flow
+ of revenues for their inventory, which they supply to us. We strive to 
+get the maximum effective CPMs ensuring the high fill rates. We ensure 
+to run the most relevant ads basing on content, audience, search and 
+many more parameters on our Publishers sites. The Publishers have the 
+liberty to restrict competitors' ads or any other ads, which they wish 
+to.
+ &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="row"&gt;
+          &lt;div class="col-xs-12 col-sm-6 col-md-6"&gt;
+            &lt;div class="mb-70 wow fadeIn" data-wow-delay="600ms"&gt;
+              &lt;div class="fes17-title-cont" &gt;
+                &lt;div class="fes17-box-icon"&gt;
+                  &lt;div class="icon 
+icon-basic-geolocalize-05"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;h3&gt;&lt;strong&gt;Native 
+Ads&lt;/strong&gt;&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class="text-justify"&gt; &lt;strong&gt;Boost Your 
+Revenues thru Native Ads&lt;/strong&gt;&lt;br&gt;
+Native advertising is the hottest new traffic strategy in digital 
+marketing. They just don't get clicks, they get conversions. They look 
+like content, what we look out on the Internet. This entertains, informs
+ or inspires. So, go for Native Ads.
+ &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-xs-12 col-sm-6 col-md-6"&gt;
+            &lt;div class="mb-70 wow fadeIn" data-wow-delay="400ms"&gt;
+              &lt;div class="fes17-title-cont" &gt;
+                &lt;div class="fes17-box-icon"&gt;
+                  &lt;div class="icon-music-play-button"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;h3&gt;&lt;strong&gt;Video&lt;/strong&gt;&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class="text-justify"&gt; &lt;strong&gt;Most 
+fruitful Inventory monetisation&lt;/strong&gt;&lt;br&gt;
+The highest CPMs in the digital advertising is through Video 
+Advertising. Publishers are realising that high conversions thru Video 
+Advertising is one of the most fruitful way of monetising inventory. 
+Monetize through our most attractive formats such as in-banner videos, 
+in-roll &amp; Pre-roll videos.
+ &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+  &lt;section class="p-50-cont bg-gray"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="row display-flex"&gt;
+        &lt;div class="col-md-4 col-sm-6"&gt;
+          &lt;div class="work-proc2-a-cont wow fadeIn" 
+data-wow-delay="600ms"&gt; &lt;a class="work-proc2-a" href=""&gt;
+            &lt;div class="work-proc2-a-text"&gt; Why &lt;br&gt;
+              &lt;span class="border-bot"&gt;Affluence?&lt;/span&gt; 
+&lt;/div&gt;
+            &lt;div class="work-proc2-bg-block"&gt;&lt;/div&gt;
+            &lt;/a&gt; &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-4 col-sm-6"&gt;
+          &lt;div class="work-proc2-cont wow fadeIn"  &gt;
+            &lt;div class="work-proc2-icon-cont pos-l-12"&gt; 01 
+&lt;/div&gt;
+            &lt;h3&gt;&lt;strong&gt;Yield 
+Management&lt;/strong&gt;&lt;/h3&gt;
+            &lt;p&gt;Affluence's focus would be to handle all the 
+Advertising needs of the Publisher to focus on their core operations. We
+ will set-up your Account settings, do Ad Optimisation, Performance 
+monitoring and Inventory Management.  &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-4 col-sm-6"&gt;
+          &lt;div class="work-proc2-cont wow fadeIn" 
+data-wow-delay="200ms"&gt;
+            &lt;div class="work-proc2-icon-cont"&gt; 02 &lt;/div&gt;
+            &lt;h3&gt;&lt;strong&gt;Dynamic 
+Allocation&lt;/strong&gt;&lt;/h3&gt;
+            &lt;p&gt;We Integrating Publisher AdSense Account into our 
+DFP to compete with Adx thru Dynamic Allocation, so that the highest 
+bidding Ad would display. &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="clearfix hidden-sm-down"&gt;&lt;/div&gt;
+        &lt;div class="col-md-4 col-sm-6"&gt;
+          &lt;div class="work-proc2-cont wow fadeIn" 
+data-wow-delay="400ms"&gt;
+            &lt;div class="work-proc2-icon-cont"&gt; 03 &lt;/div&gt;
+            &lt;h3&gt;&lt;strong&gt;Comprehensive Monetory 
+Solutions&lt;/strong&gt;&lt;/h3&gt;
+            &lt;p&gt;With our long experience, our Ad consultants are 
+good at AdSense, DFP &amp; DoubleClick Ad Exchange. &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-4 col-sm-6"&gt;
+          &lt;div class="work-proc2-cont wow fadeIn"  &gt;
+            &lt;div class="work-proc2-icon-cont pos-l-12"&gt; 04 
+&lt;/div&gt;
+            &lt;h3&gt;&lt;strong&gt;Experts in the 
+business&lt;/strong&gt;&lt;/h3&gt;
+            &lt;p&gt;Affluence would help you to thrive in your business
+ at the highest level by analysing in-depth study of Reports to target 
+Ad Units, Ad Placements, Geo's (City), Device Categories and 
+Advertisers&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-4 col-sm-6"&gt;
+          &lt;div class="work-proc2-cont wow fadeIn" 
+data-wow-delay="200ms"&gt;
+            &lt;div class="work-proc2-icon-cont"&gt; 05 &lt;/div&gt;
+            &lt;h3&gt;&lt;strong&gt;Support&lt;/strong&gt;&lt;/h3&gt;
+            &lt;p&gt;We provide the best consultative services that 
+increase your earnings and performance apart from addressing all your 
+general &amp; account inquiries. &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+    
+    
+    
+    &lt;div id="benefits-link" class="page-section pt-50"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;h2 class="section-title2 text-center 
+mb-10"&gt;&lt;strong&gt;Benefits&lt;/strong&gt;&lt;/h2&gt;
+            &lt;p class="mb-45 p-0 text-center"&gt;Affluence Digital 
+Media holds Network Partner Management Account from Google Adx (Double 
+Click), offered to Publishers with premium inventory, where we can 
+resell inventory which is not owned &amp; Operated by us. Google ADX 
+provides publishers access to biggest brand advertisers and programmatic
+ buyers globally. These kind of advertisers &amp; buyers (various Dsp's,
+ Tradedesks and Agencies) that bid on Google Adx are much premium and 
+have high CPMs. &lt;/p&gt;
+          &lt;/div&gt;
+          
+          
+        &lt;/div&gt;
+        
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="page-section"&gt;
+      &lt;div class="container-fluid"&gt;
+        &lt;div data-equal=".equal-height" class="row row-sm-fix"&gt;
+          &lt;div class="col-md-6 equal-height" 
+style="background:#EC883C;"&gt;
+            &lt;div class="fes2-main-text-cont text-black"&gt;
+              &lt;div class="fes2-title-45 font-poppins"&gt; 
+&lt;strong&gt;Core benefits of being on Google Adx&lt;/strong&gt; 
+&lt;/div&gt;
+              &lt;div class="fes2-text-cont"&gt;
+              
+              &lt;ul&gt;
+              &lt;li&gt;Access to biggest Brand Advertisers and 
+Programmatic buyers globally&lt;/li&gt;
+              &lt;li&gt;Global coverage&lt;/li&gt;
+              &lt;li&gt;High Fill rate : Average 92-98 % fill 
+rate&lt;/li&gt;
+              &lt;li&gt;Content relevant ads / Category level ads / 
+Restrict Competitors&lt;/li&gt;
+              &lt;li&gt;Top Premium/Big Branded advertisers who pay high
+ CPM's&lt;/li&gt;
+              &lt;li&gt;Ability to create CPM floors at ad slots 
+level&lt;/li&gt;
+              &lt;li&gt;Dedicated advisory on optimization to improve 
+performance&lt;/li&gt;
+              &lt;li&gt;Preferred deals&lt;/li&gt;
+              &lt;li&gt;Monetize both Desktop display and Mobile WAP 
+inventory&lt;/li&gt;
+
+&lt;/li&gt;
+              &lt;/ul&gt;
+              
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 equal-height" 
+style="background:#697b7f;"&gt;
+            &lt;div class="fes2-main-text-cont text-white"&gt;
+              &lt;div class="fes2-title-45 font-poppins text-white"&gt; 
+&lt;strong&gt;Preferred Deals: How?&lt;/strong&gt; &lt;/div&gt;
+              &lt;div class="fes2-text-cont"&gt;Advertisers approach the
+ publishers to place their Ads on their site for a fixed price on 
+Preferred deals. These Advertisers may ask about specific ad sizes, 
+placements and audiences. &lt;br&gt;
+&lt;br&gt;
+Affluence Digital Media would work with Top Advertisers and Publishers 
+to sell premium ad inventory directly to premium advertisers 
+programmatically rather than only through a dedicated ad sales team. Set
+ specific CPM floor prices for premium ad placements and impressions 
+while netting even higher CPM revenue as a result of an auction. One 
+such SSP allowing private auctions is DoubleClick Ad Exchange (AdX) by 
+Google.
+&lt;/div&gt;
+              
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+    
+    &lt;!-- CLIENTS 2 --&gt;
+    &lt;div class="page-section p-30-cont"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+        &lt;div class="col-sm-3 p-100"&gt;&lt;h3&gt;Our 
+Partners&lt;/h3&gt;&lt;/div&gt;
+          &lt;div class="col-sm-6"&gt; &lt;img alt="client" 
+src="images/clients-logos.png" class="img-responsive"&gt; &lt;/div&gt;
+          &lt;div class="col-sm-3 p-100"&gt;&lt;/div&gt;
+          
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    
+   
+    
+    
+   
+    
+
+    
+    &lt;!-- FOOTER 4 BLACK WITH TWITTER FEED --&gt;
+    &lt;footer id="contact-link" class="page-section pt-10 pb-30 
+bg-gray-light"&gt;
+      &lt;div class="container"&gt;
+        
+        
+        &lt;!-- SUB FOOTER --&gt;
+        &lt;div class="footer2-copy-cont clearfix"&gt; 
+         
+          
+          &lt;!-- Copyright --&gt;
+          &lt;div class="left"&gt; &lt;a class="footer2-copy" 
+href="http://www.affluencedigitalmedia.com" 
+target="_blank"&gt;&amp;copy; Affluence &lt;/a&gt; &lt;/div&gt;
+          &lt;div class="right"&gt;Email ID: &lt;a href="mailto: 
+biz@affluencedigitalmedia.com" target="_new" 
+style="color:#F30;"&gt;biz@affluencedigitalmedia.com&lt;/a&gt; | M: +91 
+91009 47389&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+    
+    &lt;!-- BACK TO TOP --&gt;
+    &lt;p id="back-top"&gt; &lt;a href="#top" title="Back to 
+Top"&gt;&lt;span class="icon icon-arrows-up"&gt;&lt;/span&gt;&lt;/a&gt; 
+&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;!-- End BG --&gt; 
+&lt;/div&gt;
+&lt;!-- End wrap --&gt; 
+
+&lt;!-- JS begin --&gt; 
+
+&lt;!-- jQuery  --&gt; 
+&lt;script type="text/javascript" 
+src="js/jquery.min.js"&gt;&lt;/script&gt; 
+
+&lt;!-- Include all compiled plugins (below), or include individual 
+files as needed --&gt; 
+&lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt; 
+
+&lt;!-- MAGNIFIC POPUP --&gt; 
+&lt;script src="js/jquery.magnific-popup.min.js"&gt;&lt;/script&gt; 
+
+&lt;!-- PORTFOLIO SCRIPTS --&gt; 
+&lt;script type="text/javascript" 
+src="js/isotope.pkgd.min.js"&gt;&lt;/script&gt; 
+&lt;script type="text/javascript" 
+src="js/imagesloaded.pkgd.min.js"&gt;&lt;/script&gt; 
+&lt;script type="text/javascript" 
+src="js/masonry.pkgd.min.js"&gt;&lt;/script&gt; 
+
+&lt;!-- APPEAR --&gt; 
+&lt;script type="text/javascript" 
+src="js/jquery.appear.js"&gt;&lt;/script&gt; 
+
+&lt;!-- OWL CAROUSEL --&gt; 
+&lt;script type="text/javascript" 
+src="js/owl.carousel.min.js"&gt;&lt;/script&gt; 
+
+
+&lt;!-- ONE PAGE NAV --&gt; 
+&lt;script src="js/jquery.nav.js"&gt;&lt;/script&gt; 
+&lt;script type="text/javascript"&gt;
+      $(document).ready(function() {
+				//ONE PAGE NAV	
+---------------------------------------------------------------------------
+
+					var top_offset = $('header').height() - 1;  // get height of fixed 
+navbar
+
+					$('#nav-onepage').onePageNav({
+						currentClass: 'current',
+						changeHash: false,
+						scrollSpeed: 700,
+						scrollOffset: top_offset,
+						scrollThreshold: 0.5,
+						filter: '',
+						easing: 'swing',
+						begin: function() {
+							//I get fired when the animation is starting
+						},
+						end: function() {
+							//I get fired when the animation is ending
+						},
+						scrollChange: function($currentListItem) {
+							//I get fired when you enter a section and I pass the list item 
+of the section
+						}
+					});
+          
+      });//END document.ready 
+    &lt;/script&gt; 
+
+
+
+&lt;!-- MAIN SCRIPT --&gt; 
+&lt;script src="js/main.js"&gt;&lt;/script&gt; 
+
+&lt;!-- REVOSLIDER SCRIPTS  --&gt; 
+&lt;script src="revo-slider/js/jquery.themepunch.tools.min.js" 
+type="text/javascript"&gt;
+    &lt;/script&gt; 
+&lt;script src="revo-slider/js/jquery.themepunch.revolution.min.js" 
+type="text/javascript"&gt;
+    &lt;/script&gt; 
+
+&lt;!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+      (Load Extensions only on Local File Systems ! 
+      The following part can be removed on Server for On Demand Loading)
+ --&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.actions.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.carousel.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.kenburn.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.layeranimation.min.js"
+ type="text/javascript"&gt;
+    &lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.migration.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.navigation.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.parallax.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.slideanims.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script 
+src="revo-slider/js/extensions/revolution.extension.video.min.js" 
+type="text/javascript"&gt;&lt;/script&gt; 
+
+&lt;!-- SLIDER REVOLUTION INITIALIZATION  --&gt; 
+&lt;script type="text/javascript"&gt;
+      jQuery(document).ready(function() {
+          
+        jQuery("#rev_slider_280_1").show().revolution({
+          sliderType: "hero",
+          jsFileLocation: "revo-slider/js/",
+          sliderLayout: "fullwidth",
+          dottedOverlay: "none",
+          delay: 9000,
+          responsiveLevels: [1240, 1024, 778, 480],
+          visibilityLevels: [1240, 1024, 778, 480],
+          gridwidth: [1240, 1024, 778, 480],
+          gridheight: [610, 550, 550, 550],
+          lazyType: "none",
+          parallax: {
+            type: "off",
+            origo: "slidercenter",
+            speed: 1000,
+            levels: [0],
+            type: "scroll",
+            disable_onmobile: "on"
+          },
+          shadow: 0,
+          spinner: "spinner2",
+          autoHeight: "off",
+          fullScreenAutoWidth: "off",
+          fullScreenAlignForce: "off",
+          fullScreenOffsetContainer: "",
+          fullScreenOffset: "",
+          disableProgressBar: "on",
+          hideThumbsOnMobile: "off",
+          hideSliderAtLimit: 0,
+          hideCaptionAtLimit: 0,
+          hideAllCaptionAtLilmit: 0,
+          debugMode: false,
+          fallbacks: {
+            simplifyAll: "off",
+            disableFocusListener: false,
+          }
+        });
+       
+      }); /*ready*/
+    &lt;/script&gt; 
+
+&lt;!-- JS end --&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+                        
+                    </td>
+                </tr>
+            </tbody></table>
+        </form>
+
+        <script type="text/plain" id="general_encoding_changed_template">
+            <p>
+                The system was unable to save your document in “{old_charset}” encoding. Most likely, your document contains characters incompatible with “{old_charset}”.
+            </p>
+
+            <p>
+                cPanel has upgraded your document to “{new_charset}” encoding. Please verify that the file opens correctly in your application.
+            </p>
+
+            <p>
+                To learn more about file encoding, visit <a href="http://go.cpanel.net/encoding">http://go.cpanel.net/encoding</a>.
+            </p>
+        </script>
+
+        
+
+<img src="cPanel%20X%20-%20File%20Manager_files/progress_bar.gif" class="preloadedImage">
+<img src="cPanel%20X%20-%20File%20Manager_files/check.png" class="preloadedImage">
+
+<script id="cjt_error_dialog_template" type="text/plain">
+<div class="error_notice">{error_html}</div>
+</script>
+
+<script id="cjt_http_error_dialog_template" type="text/plain">
+<div class="error_notice http_error_notice">
+    <div class="http_status">{status}: {status_text_html}</div>
+    <div><a href="javascript:void(0)" class="http_error_details_link">Show/Hide Details</a></div>
+    <div class="cjt_error_details" style="display:none">
+        <div class="url">URL ({method}):<pre>{url_html}</pre></div>
+        <div class="post">Body: <pre>{post_html}</pre></div>
+        <div class="response">Response:<pre>{response_html}</pre></div>
+    </div>
+</div>
+</script>
+
+<script>
+CPANEL.application = "cpaneld";
+YAHOO.lang.augmentObject( CPANEL.Locale.prototype.LEXICON, {"HTTP ERROR":"HTTP ERROR","Error":"Error","Success!":"Success!","ERROR":"ERROR","Proceed":"Proceed","An unknown error occurred.":"An unknown error occurred.","OK":"OK","Processing …":"Processing …","Cancel":"Cancel","Notice":"Notice"} );
+</script>
+<script src="cPanel%20X%20-%20File%20Manager_files/ajaxapp-min.js"></script>
+
+        <script type="text/javascript">
+            var CHARSET = document.sform.charset.value;
+
+            if ( !window.LEXICON ) {
+                LEXICON = {};
+            }
+
+            LEXICON.charset_changed = "Character Encoding Change";
+            LEXICON.confirm_close   = "You have unsaved changes. Are you sure you want to close this window?";
+            LEXICON.reloading       = "Reloading…";
+
+            function loadfile(clicked_el) {
+                var textarea = DOM.get("codewindow");
+
+                if (textarea.value !== textarea.defaultValue) {
+                    var sure = confirm("Are you sure you wish to open a new file? You will lose any changes you have made.");
+                    if (!sure) {
+                        return;
+                    }
+                }
+
+                var filen = document.sform.path.value;
+                var fpath = filen.split('/');;
+                var filename = fpath.pop();
+                var dir = fpath.join('/');
+                var sdir = encodeURIComponent(dir);
+                var sfilename = encodeURIComponent(filename);
+                var charset = document.getElementById('charset').value;
+
+                var pp = new CPANEL.ajax.Progress_Panel( DOM.generateId(), {
+                    status_html : "Reloading…",
+                    effect: CPANEL.ajax.FADE_MODAL
+                } );
+
+                if (clicked_el) {
+                    pp.show_from_source(clicked_el);
+                }
+                else {
+                    pp.show();
+                }
+
+                document.location.href="?dir=" + sdir + "&file=" + sfilename + '&file_charset=' + charset;
+            }
+
+            var LAST_NOTICE = null;
+
+            function loadfdata(clicked_el) {
+                var path     = DOM.get("path");
+
+                if ( CODEWINDOW.value === CODEWINDOW.defaultValue && path.value === path.defaultValue ) {
+                    LAST_NOTICE = new CPANEL.ajax.Dynamic_Notice({content:"You have made no changes to save.", level:"info", replaces:LAST_NOTICE});
+                    return;
+                }
+
+                var match = path.value.match(/^(.+)\/([^\/]+)$/);
+                if ( !match ) {
+                    LAST_NOTICE = new CPANEL.ajax.Dynamic_Notice({content:"Invalid path.", level:"error", replaces:LAST_NOTICE});
+                    return;
+                }
+
+                var api_params = {
+                    module:   "Fileman",
+                    func:     "savefile",
+                    data:     {
+                        dir:           match[1],
+                        filename:      match[2],
+                        content:       window.editAreaLoader ? editAreaLoader.getValue("codewindow") : document.sform.page.value,
+                        utf8_fallback: 1,
+                        charset:       CHARSET
+                    },
+                    progress_panel: {
+                        zIndex:      2500,
+                        show_status: true,
+                        source_el:   clicked_el,
+                        status_html: "Saving “{the_file}” …".replace('{the_file}',match[2].html_encode()),
+                        success_notice_options: { replaces:LAST_NOTICE },
+                        before_success: function(result) {
+                            CODEWINDOW.defaultValue = CODEWINDOW.value;
+
+                            return check_for_encoding_change.call(
+                                this,
+                                CPANEL.ajax.templates.general_encoding_changed_template,
+                                result.cpanel_data
+                            );
+                        }
+                    },
+                    callback: {
+                        success: function() { LAST_NOTICE = req.notice }
+                    }
+                };
+
+                var req = CPANEL.api( api_params );
+
+                return false;
+            }
+        </script>
+
+        <script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/edit_area_full.js"></script>
+        <script type="text/javascript" src="cPanel%20X%20-%20File%20Manager_files/edit_area_resizer.js"></script>
+        <script>
+        var editAreaEl='codewindow';
+        var lastResizeTime=0;
+        var lastResizeRequestTime=0;
+
+        function unhide_codewindow() {
+            DOM.setStyle("codewindow","visibility","");
+            if ( YAHOO.env.ua.ie ) fix_ie_margin();
+            set_link_for_code();
+        };
+
+        var EditArea_config = {
+        
+            display: "later",
+            EA_load_callback: "set_link_for_code",
+        
+            EA_toggle_on_callback: "set_link_for_code",
+            EA_toggle_off_callback: "set_link_for_text",
+            id: editAreaEl,
+            start_highlight: true,
+            allow_resize: "both",
+            allow_toggle: false,
+            language: "en",
+            toolbar: "search, go_to_line, |, undo, redo, |, select_font, |, syntax_selection, |, change_smooth_selection, highlight, reset_highlight, word_wrap, |, help",
+            syntax: "html",
+            word_wrap: true
+        };
+
+        function load_EditArea() {
+            //Set the code textarea width to 800px temporarily
+            //so EditArea will size the edit area to that width.
+            //This mimicks behavior of the old separate editit_code.html.
+            if ( !CODEWINDOW) CODEWINDOW = DOM.get(editAreaEl);
+            CODEWINDOW.style.visibility = "";
+            CODEWINDOW.style.width = "800px";
+
+            editAreaLoader.init(EditArea_config);
+
+        
+            textarea_sizer();
+        
+        }
+
+        function fix_ie_margin() {
+            //work around a bug in EditArea that sets a marginTop when it shouldn't.
+            //The EA code has an exception for IE>7, but it kills detecting IE>7 early
+            //on presuming that it will be able to force IE7 compatibility mode.
+            //(Which it can't always do, actually.)
+            if ( YAHOO.env.ua.ie > 7 ) {
+                var iframe_window = DOM.get("frame_codewindow");
+                iframe_window.contentDocument.getElementById("textarea").style.marginTop = "";
+            }
+        }
+
+        function set_link_for_code() {
+            DOM.get("switch_editor_control").innerHTML = "Use Text Editor";
+            if ( YAHOO.env.ua.ie ) fix_ie_margin();
+            window.ea_shown = true;
+        }
+        function set_link_for_text() {
+            DOM.get("switch_editor_control").innerHTML = "Use Code Editor";
+        }
+
+        function toggle_EditArea(link) {
+            var ea = editAreas[editAreaEl];
+
+            if (!ea || !ea.displayed) {
+        
+                if ( !window.ea_shown ) {
+                    CODEWINDOW.style.visibility = "";
+                    CODEWINDOW.style.width = "800px";
+                }
+        
+                editAreaLoader.toggle_on(editAreaEl);
+                doResizeSoon();
+                EVENT.removeListener( window, "resize", textarea_sizer );
+                EVENT.addListener( window, "resize", doResizeSoon );
+            }
+            else {
+                editAreaLoader.toggle_off(editAreaEl);
+                CODEWINDOW.wrap = "soft";
+                EVENT.removeListener( window, "resize", doResizeSoon );
+                EVENT.addListener( window, "resize", textarea_sizer );
+                textarea_sizer();
+            }
+        }
+
+        var CODEWINDOW;
+        var codewindow_padding = YAHOO.env.ua.ie ? 3 : 0;
+        function textarea_sizer() {
+            var pos = DOM.getXY(CODEWINDOW);
+            var viewport_height = DOM.getViewportHeight();
+            var viewport_width  = DOM.getViewportWidth();
+            CODEWINDOW.style.width  = (viewport_width  - pos[0] - codewindow_padding) + "px";
+            CODEWINDOW.style.height = (viewport_height - pos[1] - codewindow_padding) + "px";
+        }
+
+        // var editor_icons = {
+        //     code: "/cPanel_magic_revision_0/frontend/gl_paper_lantern/filemanager/img/icons/codeEditorB.gif",
+        //     text: "/cPanel_magic_revision_0/frontend/gl_paper_lantern/filemanager/img/icons/Document 2 Edit 2.gif"
+        // };
+
+        EVENT.throwErrors = true;
+        EVENT.onDOMReady( function() {
+            CODEWINDOW = DOM.get(editAreaEl);
+            //var img = document.createElement("img");
+            //img.style.display = "none";
+        
+            //img.src = editor_icons.text;
+            EVENT.addListener( window, "resize", textarea_sizer );
+        
+            //document.body.appendChild(img);
+        } );
+
+        YAHOO.util.Event.addListener(window, "load", load_EditArea);
+        //YAHOO.util.Event.addListener(window, "load", textarea_sizer);
+        </script>
+
+    
+
+<div id="cjt_dynamicnotice_container" class="cjt-dynamicnotice-container cjt-notice-container"></div></body></html>
